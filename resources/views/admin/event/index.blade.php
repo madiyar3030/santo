@@ -107,9 +107,11 @@
                                     </div>
                                     <label class="form-label">Тип</label>
                                     <select class="form-control show-tick" id="type" name="type">
+                                        @if (isset($types))
                                         @foreach($types as $type)
                                             <option value="{{$type->id}}">{{$type->title}}</option>
                                         @endforeach
+                                        @endif
                                     </select>
                                 </div>
                                 <div class="form-group form-float p-t-5">

@@ -20,7 +20,6 @@ class UserController extends Controller
         $users[0]->childrens = (object)[
             'id' => 1
         ];
-//        dd($request);
         if ($request['sort'] === 'name') {
             $users = User::orderBy('name', 'asc')
                 ->paginate(10);

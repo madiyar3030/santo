@@ -31,6 +31,7 @@ class ArticleController extends Controller
         $authors = Author::whereNull('user_id')->get();
         //$authors = User::whereType('author')->select('id', 'name', 'last_name')->get();
         $slides = Article::where('show_main', 1)->get();
+
         return view('admin.article.index', ['articles' => $articles, 'authors' => $authors, 'tags' => $tags, 'slides' => $slides]);
     }
 
@@ -110,7 +111,12 @@ class ArticleController extends Controller
         $authors = Author::whereNull('user_id')->get();
         //$authors = User::whereType('author')->select('id', 'name', 'last_name')->get();
         $tags = Tag::all();
-        return view('admin.article.edit', ['article' => $article, 'page' => request()->get('page'), 'authors' => $authors, 'tags' => $tags]);
+        return view('admin.article.edit', [
+            'article' => $article,
+            'page' => request()->get('page'),
+            'authors' => $authors,
+            'tags' => $tags
+        ]);
     }
 
     /**

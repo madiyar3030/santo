@@ -195,17 +195,19 @@
                         </h5>
                         <div class="modal-body">
                             {{csrf_field()}}
-                            @foreach($slides as $slide)
-                            <div>
-                                <form action="{{route('articles.removeShow', $slide)}}" method="POST" style="display:inline-block">
-                                    @csrf
-                                    <span>{{$slide->title}}</span>
-                                    <button type="submit" class="waves-effect btn btn-danger pull-right">
-                                        Удалить
-                                    </button>
-                                </form>
-                            </div>
-                            @endforeach
+                            @if (isset($slides))
+                                @foreach($slides as $slide)
+                                <div>
+                                    <form action="{{route('articles.removeShow', $slide)}}" method="POST" style="display:inline-block">
+                                        @csrf
+                                        <span>{{$slide->title}}</span>
+                                        <button type="submit" class="waves-effect btn btn-danger pull-right">
+                                            Удалить
+                                        </button>
+                                    </form>
+                                </div>
+                                @endforeach
+                            @endif
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">Отмена</button>
                             </div>

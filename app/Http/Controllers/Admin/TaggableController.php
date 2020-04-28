@@ -6,7 +6,7 @@ use App\Models\Taggable;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class TagController extends Controller
+class TaggableController extends Controller
 {
     /**
      * Remove the specified resource from storage.
